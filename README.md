@@ -1,6 +1,12 @@
 # ImgPDF
 A python script  🐍 that merges multiple images 📁 into one PDF file 📃.
 
+### Requirements ⚙️
+```bash
+python -m pip install git+https://github.com/reingart/pyfpdf
+python -m ppip install pillow
+```
+
 ### Run 🏁
 ```bash
 python ImgPDF.py

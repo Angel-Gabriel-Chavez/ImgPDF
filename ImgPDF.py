@@ -1,19 +1,26 @@
-from fpdf import FPDF
-from PIL import Image
-import os
+from fpdf import FPDF # pdf
+from PIL import Image # image size
+import os # path
 
 pdf = FPDF()
-path = 'C:/Users/BatmanDorado/Desktop/PixelArt'
+
+# format of directory paths with images
+path = input('path: ').replace('\\', '/')
 imagelist = [path + '/' + i for i in os.listdir(path)]
 
-margin = 10
+# set margin
+margin = int(input('margin: '))
 
 for image in imagelist:
+
+    # ger image size
     cover = Image.open(image)
     width, height = cover.size
+
+    # adjust page size based on image size
     pdf.add_page(format  = (width + (margin * 2),
                             height + (margin * 2))
                  )
     pdf.image(image, margin, margin, width, height)
 
-pdf.output("C:/Users/BatmanDorado/Desktop/PixelArt/yourfile.pdf", "F")
+pdf.output(path + '/yourfile.pdf', 'F')

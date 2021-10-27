@@ -1,28 +1,19 @@
 from fpdf import FPDF
 from PIL import Image
-import glob
 import os
 
+pdf = FPDF()
+path = 'C:/Users/BatmanDorado/Desktop/PixelArt'
+imagelist = [path + '/' + i for i in os.listdir(path)]
 
-# set here
-image_directory = 'C:/Users/BatmanDorado/Desktop/PixelArt'
-extensions = ('*.jpg','*.png','*.gif') #add your image extentions
-# set 0 if you want to fit pdf to image
-# unit : pt
 margin = 10
 
-imagelist=[]
-for ext in extensions:
-    imagelist.extend(glob.glob(os.path.join(image_directory,ext)))
-
-for imagePath in imagelist:
-    cover = Image.open(imagePath)
+for image in imagelist:
+    cover = Image.open(image)
     width, height = cover.size
+    pdf.add_page(format  = (width + (margin * 2),
+                            height + (margin * 2))
+                 )
+    pdf.image(image, margin, margin, width, height)
 
-pdf = FPDF(unit="pt", format=[width + 2*margin, height + 2*margin])
-pdf.add_page()
-
-pdf.image(imagePath, margin, margin)
-
-destination = os.path.splitext(imagePath)[0]
-pdf.output(destination + ".pdf", "F")
+pdf.output("C:/Users/BatmanDorado/Desktop/PixelArt/yourfile.pdf", "F")

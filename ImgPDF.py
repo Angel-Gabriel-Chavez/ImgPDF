@@ -5,7 +5,7 @@ import os # path
 pdf = FPDF()
 
 # format of directory paths with images
-path = input('path: ').replace('\\', '/')
+path = input('Path: ').replace('\\', '/')
 imagelist = [path + '/' + i for i in os.listdir(path)]
 
 # set name
@@ -13,7 +13,7 @@ name = input('Resulting file name: ')
 filepath = path + '/' + name + '.pdf'
 
 # set margin
-margin = int(input('margin: '))
+margin = int(input('Margin: '))
 
 for image in imagelist:
 

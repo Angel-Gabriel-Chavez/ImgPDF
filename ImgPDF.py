@@ -8,6 +8,10 @@ pdf = FPDF()
 path = input('path: ').replace('\\', '/')
 imagelist = [path + '/' + i for i in os.listdir(path)]
 
+# set name
+name = input('Resulting file name: ')
+filepath = path + '/' + name + '.pdf'
+
 # set margin
 margin = int(input('margin: '))
 
@@ -23,4 +27,4 @@ for image in imagelist:
                  )
     pdf.image(image, margin, margin, width, height)
 
-pdf.output(path + '/yourfile.pdf', 'F')
+pdf.output(filepath, 'F')

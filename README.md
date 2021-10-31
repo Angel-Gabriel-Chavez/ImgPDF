@@ -15,11 +15,15 @@ python ImgPDF.py
 
 Enter the path of the folder with images:
 ```bash
-path: C:\folder\with\images
+Path: C:\folder\with\images
+```
+Set filename:
+```bash
+Resulting file name: filename
 ```
 Set the margin:
 ```bash
-margin: [num_int]
+Margin: [num_int]
 ```
 ### Contribute 🛠️
 
